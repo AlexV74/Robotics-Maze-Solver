@@ -1,2 +1,9 @@
 # Robotics-Maze-Solver
 Robotics Maze Solver for Unseen Mazes
+
+The project is built on LeJOS which is a Java based firmware replacement for the EV3 brick, and allows functionality to write and create programs in Java with many libraries for controlling interfaces between the brick and its motors and sensors.
+
+The robot is designed to solve a random drawn out maze, and travel that path by identifying junctions based on its surroundings. It has functionality to drive on a line at a good speed, identify junctions and dead ends in a maze, and map out the maze internally using an ArrayList and a stack, in order to mark previously visited paths and reverse out of junctions using Tremaux algorithm. The robot's physical design has a motor on each side for movement, 4 colour sensors, 3 reflecting red light to measure the intensity, this keeps the robot following a straight line and allows functionality to detect every single variation of splits on a maze. The last colour sensor detects RGB colours of the surface, red stickers represent dead ends and a green sticker represents the finish point. The sensors at the front are in a triangle formation, which allows it to efficiently and swiftly identify junctions and make a decision by “wiggling” on the spot, and then recalibrating itself back onto the line to ensure smooth and robust turning which will always stay on the line that marks the maze.
+
+The control flow of the program follows the diagram, the program essentially initialises all variables, sensors, threads and the arbitrator, and then continues to solve the maze using the behaviours in the arbitrator and pauses the thread respectively to stop them from going out of sync. It repeats this until the maze is solved, then stops execution.
+![ss](https://user-images.githubusercontent.com/95477797/219506970-f5da057c-aad4-4e4b-a282-857f948446d9.png)
